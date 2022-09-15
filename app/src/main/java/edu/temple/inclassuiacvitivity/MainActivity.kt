@@ -13,9 +13,14 @@ class MainActivity : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner)
         val changeButton = findViewById<Button>(R.id.changeButton)
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
+        var a: Int
 
-        // Step 1: Populate array
+       // Step 1: Populate array
         val numberArray = IntArray(100)
+        var i: Int = 1
+        for (i in 1..100){
+            numberArray[i] = i
+        }
 
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, numberArray.asList())
 
@@ -28,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
+                a = parent?.getItemAtPosition(position).toString().toInt()
 
             }
 
@@ -36,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         // Step 3: Change TextView to saved text size
         changeButton.setOnClickListener {
+            Toast.makeText(this,"test",Toast.LENGTH_SHORT).show()
 
         }
 
